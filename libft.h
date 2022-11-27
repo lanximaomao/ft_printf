@@ -7,6 +7,13 @@
 
 #include <stdarg.h>
 
+typedef s_printf
+{
+	va_list	ap;
+	char c;
+	char* str;
+}	t_printf;
+
 int ft_printf(const char *, ...);
 #endif
 
