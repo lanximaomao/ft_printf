@@ -69,7 +69,7 @@ int main()
 
 	t_int = -22;
 
-	count = ft_printf("%u\n", t_int);
+	count = ft_printf("%d\n", t_int);
 	printf("count is %d\n", count);
 	return(0);
 }
