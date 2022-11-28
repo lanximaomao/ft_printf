@@ -1,11 +1,11 @@
-#include "libft.h"
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_printf(const char *str, ...)
 {
 	int			i;
 	int			count;
-	var_list	ap;
+	int	num;
+	va_list	ap;
 
 	if (!str)
 		return (0); // error msg?
@@ -17,25 +17,43 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			if (str[i + 1] == 'c') // int
-				count += ft_putchar_fd(ap, 1);
+			{
+				count += ft_putchar_fd(va_arg(ap, int), 1);
+				i++;
+			}
 			else if (str[i + 1] == 's') // char *
-				count += ft_putstr_fd(ap, 1);
-			else if (str[i + 1] == 'd') // int
-				count += ft_putnum_d(ap, 1);
-			else if (str[i + 1] == 'i') //int
-				count += ft_putnum_i(ap);
-			else if (str[i + 1] == 'u') // unsigned int
-				count += ft_putnum_u(ap);
-			else if (str[i + 1] == 'X')
-				count += ft_puthex_A(ap);
-			else if (str[i + 1] == 'x')
-				count += ft_puthex_a(ap);
-			else if (str[i + 1] == 'p')
-				count += ft_putptr(ap);
+			{
+				count += ft_putstr_fd(va_arg(ap, char*), 1);
+				i++;
+			}
+			else if (str[i + 1] == 'd'|| str[i + 1] == 'i' ) // int
+			{
+				num = va_arg(ap, int);
+				ft_putnbr_fd(num, 1);
+				count += ft_digit_num(num);
+				//printf("%d", count);
+				i++;
+			}
+			else if (str[i + 1] == 'u') // int
+			{
+				num = va_arg(ap, int);
+
+				if (num < 0)
+					return(0);
+				ft_putnbr_fd(num, 1);
+				count += ft_digit_num(num);
+				i++;
+			}
+			//else if (str[i + 1] == 'X')
+			//	ft_puthex_A(ap);
+			//else if (str[i + 1] == 'x')
+			//	ft_puthex_a(ap);
+			//else if (str[i + 1] == 'p')
+			//	ft_putptr(ap);
 		}
 		else
 		{
-			count += ft_putchar(str[i]);
+			count += ft_putchar_fd(str[i], 1);
 		}
 		i++;
 	}
@@ -43,20 +61,15 @@ int	ft_printf(const char *str, ...)
 	return (count);
 }
 
-// recursion? //ABCDEF?
-int	ft_puthex_A(va_list ap, int fd)
+int main()
 {
-	int	count;
-	int ret; // what type?
+	char c = 'a';
+	int count;
+	int t_int;
 
-	fd = 1;
-	count = 0;
-	if (num / 16 != 0)
-	{
-		num = num / 16;
-		ft_puthex_A(num, fd);
-	}
-	write(1, 'num % 16', 1);
-	count++;
-	return (count);
+	t_int = -22;
+
+	count = ft_printf("%u\n", t_int);
+	printf("count is %d\n", count);
+	return(0);
 }
