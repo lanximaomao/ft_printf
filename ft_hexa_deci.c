@@ -6,13 +6,13 @@
 /*   By: lsun <lsun@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:34:52 by lsun              #+#    #+#             */
-/*   Updated: 2022/11/29 19:38:14 by lsun             ###   ########.fr       */
+/*   Updated: 2022/11/29 19:48:42 by lsun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_hexa_deci_X(unsigned int n)
+int	ft_hexa_deci_big(unsigned int n)
 {
 	int	temp;
 	int	count;
@@ -20,7 +20,7 @@ int	ft_hexa_deci_X(unsigned int n)
 	count = 1;
 	if (n / 16 > 0)
 	{
-		count += ft_hexa_deci_X(n / 16);
+		count += ft_hexa_deci_big(n / 16);
 	}
 	temp = n % 16;
 	if (temp > 9)
@@ -31,7 +31,7 @@ int	ft_hexa_deci_X(unsigned int n)
 	return (count);
 }
 
-int	ft_hexa_deci_x(unsigned int n)
+int	ft_hexa_deci_small(unsigned int n)
 {
 	int	temp;
 	int	count;
@@ -39,7 +39,7 @@ int	ft_hexa_deci_x(unsigned int n)
 	count = 1;
 	if (n / 16 > 0)
 	{
-		count += ft_hexa_deci_x(n / 16);
+		count += ft_hexa_deci_small(n / 16);
 	}
 	temp = n % 16;
 	if (temp > 9)
@@ -49,12 +49,3 @@ int	ft_hexa_deci_x(unsigned int n)
 	ft_putchar_fd(temp, 1);
 	return (count);
 }
-
-//int main()
-//{
-
-//	ft_hexa_deci_x(-1);
-//	write(1, "\n", 1);
-//	printf("%X\n", -1);
-//	return(0);
-//}
