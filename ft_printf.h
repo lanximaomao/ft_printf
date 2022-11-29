@@ -6,7 +6,7 @@
 /*   By: lsun <lsun@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 19:16:30 by linlinsun         #+#    #+#             */
-/*   Updated: 2022/11/29 13:59:34 by lsun             ###   ########.fr       */
+/*   Updated: 2022/11/29 19:37:37 by lsun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,10 @@
 //	str[0][2] = '\0';
 //}
 
-int		ft_printf(const char *, ...);
-int	ft_putchar_fd(char c, int fd);
-int	ft_putstr_fd(char *s, int fd);
-int	ft_putnbr_fd(int n, int fd);
-int	ft_digit_num(long int n);
-int ft_hexa_deci_X(int n);
-int ft_hexa_deci_x(int n);
+int	ft_printf(const char *str, ...);
+int ft_hexa_deci_X(unsigned int n);
+int ft_hexa_deci_x(unsigned int n);
+int	ft_putnbr_ull_fd(unsigned int n, int fd);
+int ft_print_ptr(unsigned long long n);
 
 #endif

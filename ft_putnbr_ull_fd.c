@@ -6,16 +6,13 @@
 /*   By: lsun <lsun@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:34:40 by lsun              #+#    #+#             */
-/*   Updated: 2022/11/29 16:57:16 by lsun             ###   ########.fr       */
+/*   Updated: 2022/11/29 19:14:03 by lsun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
+#include "ft_printf.h"
 
-int	ft_putchar_fd(char c, int fd);
-
-int	ft_putnbr_ull_fd(unsigned long long n, int fd)
+int	ft_putnbr_ull_fd(unsigned int n, int fd)
 {
 	int count;
 
@@ -28,9 +25,9 @@ int	ft_putnbr_ull_fd(unsigned long long n, int fd)
 	return(count);
 }
 
-int main()
-{
-	int count;
-	count = ft_putnbr_ull_fd(18446744073709551614, 1);
-	printf("\n%d\n", count);
-}
+//int main()
+//{
+//	int count;
+//	count = ft_putnbr_ull_fd(18446744073709551614, 1);
+//	printf("\n%d\n", count);
+//}
