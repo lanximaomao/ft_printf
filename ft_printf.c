@@ -26,12 +26,9 @@ int	ft_printf(const char *str, ...)
 				count += ft_putstr_fd(va_arg(ap, char*), 1);
 				i++;
 			}
-			else if (str[i + 1] == 'd'|| str[i + 1] == 'i' ) // int
+			else if (str[i + 1] == 'd'|| str[i + 1] == 'i') // int
 			{
-				num = va_arg(ap, int);
-				ft_putnbr_fd(num, 1);
-				count += ft_digit_num(num);
-				//printf("%d", count);
+				count += ft_putnbr_fd(va_arg(ap, int), 1);
 				i++;
 			}
 			else if (str[i + 1] == 'u') // int
@@ -40,14 +37,14 @@ int	ft_printf(const char *str, ...)
 
 				if (num < 0)
 					return(0);
-				ft_putnbr_fd(num, 1);
-				count += ft_digit_num(num);
+
+				count += ft_putnbr_fd(num, 1);
 				i++;
 			}
-			//else if (str[i + 1] == 'X')
-			//	ft_puthex_A(ap);
-			//else if (str[i + 1] == 'x')
-			//	ft_puthex_a(ap);
+			else if (str[i + 1] == 'X')
+				count += ft_hexa_deci_X(va_arg(ap, int));
+			else if (str[i + 1] == 'x')
+				count += ft_hexa_deci_x(va_arg(ap, int));
 			//else if (str[i + 1] == 'p')
 			//	ft_putptr(ap);
 		}
@@ -61,15 +58,25 @@ int	ft_printf(const char *str, ...)
 	return (count);
 }
 
+//int main()
+//{
+//	char c = 'a';
+//	int count;
+//	int t_int;
+
+//	t_int = -22;
+
+//	count = ft_printf("%d\n", t_int);
+//	printf("count is %d\n", count);
+//	return(0);
+//}
+
 int main()
 {
-	char c = 'a';
-	int count;
-	int t_int;
-
-	t_int = -22;
-
-	count = ft_printf("%d\n", t_int);
-	printf("count is %d\n", count);
-	return(0);
+	ft_printf("hello %s\n", "world");
+	ft_printf("hello %s\n", NULL);
+	ft_printf(" NULL %s NULL ", NULL);
+	printf("\n");
+	printf(" NULL %s NULL ", NULL);
+	printf("\n");
 }

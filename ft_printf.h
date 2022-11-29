@@ -6,7 +6,7 @@
 /*   By: linlinsun <linlinsun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 19:16:30 by linlinsun         #+#    #+#             */
-/*   Updated: 2022/11/28 20:03:55 by linlinsun        ###   ########.fr       */
+/*   Updated: 2022/11/29 11:00:31 by linlinsun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@
 int		ft_printf(const char *, ...);
 int	ft_putchar_fd(char c, int fd);
 int	ft_putstr_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
+int	ft_putnbr_fd(int n, int fd);
 int	ft_digit_num(long int n);
+int ft_hexa_deci_X(int n);
+int ft_hexa_deci_x(int n);
 
 #endif

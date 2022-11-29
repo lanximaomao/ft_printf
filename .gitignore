@@ -1,6 +1,9 @@
 # Prerequisites
 *.d
 
+# tester
+printfTester
+
 # Object files
 *.o
 *.ko
