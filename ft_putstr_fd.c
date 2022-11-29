@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: linlinsun <linlinsun@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lsun <lsun@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 10:30:42 by lsun              #+#    #+#             */
-/*   Updated: 2022/11/29 11:37:17 by linlinsun        ###   ########.fr       */
+/*   Updated: 2022/11/29 13:55:30 by lsun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ int	ft_putstr_fd(char *s, int fd)
 	int count;
 
 	count = 0;
-	if (!s || !*s)
+	if (s == NULL)
 	{
-		//count += 6;
 		write(1, "(null)", 6);
 		return (0) ;
 	}

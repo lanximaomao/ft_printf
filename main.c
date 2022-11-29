@@ -33,4 +33,6 @@ int	main(void)
 	//int **pp = &p;
 	//printf("%u", &p);
 	//return (0);
+	i = printf("%s\n", NULL);
+	printf("%d\n", i);
 }
