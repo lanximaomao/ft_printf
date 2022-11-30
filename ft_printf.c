@@ -3,14 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsun <lsun@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: linlinsun <linlinsun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:35:03 by lsun              #+#    #+#             */
-/*   Updated: 2022/11/29 19:49:24 by lsun             ###   ########.fr       */
+/*   Updated: 2022/11/30 03:42:20 by linlinsun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_check_format(va_list ap, char c)
+{
+	int	count;
+
+	count = 0;
+	if (c == 'c')
+		count += ft_putchar_fd(va_arg(ap, int), 1);
+	else if (c == 's')
+		count += ft_putstr_fd(va_arg(ap, char *), 1);
+	else if (c == 'd' || c == 'i')
+		count += ft_putnbr_fd(va_arg(ap, int), 1);
+	else if (c == 'u')
+		count += ft_putnbr_ull_fd(va_arg(ap, unsigned long), 1);
+	else if (c == 'X')
+		count += ft_hexa_deci_big(va_arg(ap, int));
+	else if (c == 'x')
+		count += ft_hexa_deci_small(va_arg(ap, int));
+	else if (c == 'p')
+		count += ft_print_ptr(va_arg(ap, unsigned long long));
+	else if (c == '%')
+		count += ft_putchar_fd('%', 1);
+	return (count);
+}
 
 int	ft_printf(const char *str, ...)
 {
@@ -25,53 +49,13 @@ int	ft_printf(const char *str, ...)
 	va_start(ap, str);
 	while (str[i])
 	{
-		if (str[i] == '%')
+		if (str[i] == '%' && str[i + 1] != '\0')
 		{
-			if (str[i + 1] == 'c')
-			{
-				count += ft_putchar_fd(va_arg(ap, int), 1);
-				i++;
-			}
-			else if (str[i + 1] == 's')
-			{
-				count += ft_putstr_fd(va_arg(ap, char *), 1);
-				i++;
-			}
-			else if (str[i + 1] == 'd' || str[i + 1] == 'i')
-			{
-				count += ft_putnbr_fd(va_arg(ap, int), 1);
-				i++;
-			}
-			else if (str[i + 1] == 'u')
-			{
-				count += ft_putnbr_ull_fd(va_arg(ap, unsigned long), 1);
-				i++;
-			}
-			else if (str[i + 1] == 'X')
-			{
-				count += ft_hexa_deci_big(va_arg(ap, int));
-				i++;
-			}
-			else if (str[i + 1] == 'x')
-			{
-				count += ft_hexa_deci_small(va_arg(ap, int));
-				i++;
-			}
-			else if (str[i + 1] == 'p')
-			{
-				count += ft_print_ptr(va_arg(ap, unsigned long long));
-				i++;
-			}
-			else if (str[i + 1] == '%')
-			{
-				count += ft_putchar_fd('%', 1);
-				i++;
-			}
+			count += ft_check_format(ap, str[i + 1]);
+			i++;
 		}
 		else
-		{
 			count += ft_putchar_fd(str[i], 1);
-		}
 		i++;
 	}
 	va_end(ap);
