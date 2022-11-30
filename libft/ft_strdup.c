@@ -6,7 +6,7 @@
 /*   By: lsun <lsun@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 11:51:38 by lsun              #+#    #+#             */
-/*   Updated: 2022/11/16 17:49:35 by lsun             ###   ########.fr       */
+/*   Updated: 2022/11/24 12:38:25 by lsun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strdup(const char *src)
 
 	i = 0;
 	len = ft_strlen((char *)src);
-	if (!*src && !src)
+	if (!src && !*src)
 		return (NULL);
 	dest = (char *)malloc(sizeof(*src) * (len + 1));
 	if (!dest)
