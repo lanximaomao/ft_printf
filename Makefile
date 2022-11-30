@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lsun <lsun@student.42.fr>                  +#+  +:+       +#+         #
+#    By: linlinsun <linlinsun@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/11 15:48:08 by linlinsun         #+#    #+#              #
-#    Updated: 2022/11/29 18:00:46 by lsun             ###   ########.fr        #
+#    Updated: 2022/11/30 04:05:36 by linlinsun        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-SRCS = ft_printf.c ft_hexa_deci.c ft_print_ptr.c ft_putnbr_ull_fd.c
+SRCS = ft_printf.c ft_hexa_deci.c ft_printf_ptr.c ft_printf_utils.c
 OBJS = $(SRCS:.c=.o)
 CFLAGS = -c -Wall -Wextra -Werror
 

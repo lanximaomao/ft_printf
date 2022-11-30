@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim_v2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsun <lsun@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: linlinsun <linlinsun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 11:14:55 by lsun              #+#    #+#             */
-/*   Updated: 2022/11/29 15:02:27 by lsun             ###   ########.fr       */
+/*   Updated: 2022/11/30 04:17:44 by linlinsun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 			check = 1;
 		if (ft_strchr(set, s1[end]) && check > 0)
 			end--;
-		if (!ft_strchr(set, s1[end]) && check > 0)//
-			break;//
+		if (!ft_strchr(set, s1[end]) && check > 0)
+			break ;
 		i++;
 	}
 	return (ft_trim_assign(s1, start, end));
