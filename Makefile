@@ -6,7 +6,7 @@
 #    By: lsun <lsun@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/11 15:48:08 by linlinsun         #+#    #+#              #
-#    Updated: 2022/11/30 11:30:32 by lsun             ###   ########.fr        #
+#    Updated: 2022/11/30 11:34:35 by lsun             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ $(NAME):
 	make -C ./libft bonus
 	mv ./libft/libft.a ./$(NAME)
 	cc $(CFLAGS) $(SRCS) -I $(INCLUDE)
-	ar -rcs $(NAME) $(OBJS)
+	ar -rus $(NAME) $(OBJS)
 
 clean:
 	make -C ./libft clean
