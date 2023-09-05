@@ -1,6 +1,7 @@
 # <center>ft_printf - 42 School project</center>
 ## Description
-Write a library that contains ft_printf(), a function that will mimic the original printf().
+Write a library that contains ft_printf(), a function that will mimic the original printf(). Detailed project requirements can be found [here](ft_printf.pdf).
+
 <br><br>
 ## Language used
 [![Language used](https://skills.thijs.gg/icons?i=c)](https://skills.thijs.gg)
